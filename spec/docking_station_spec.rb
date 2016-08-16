@@ -1,10 +1,17 @@
 require 'boris_bikes.rb'
 
 describe DockingStation do
-  it {expect(DockingStation.new).to respond_to(:release_bike)}
+  before(:all) do
+    @station = DockingStation.new
+    @bike = @station.release_bike
+  end
+
   it 'should release the working bike' do
-    expect(DockingStation.new.release_bike).to be_an_instance_of(Bike)
-    expect(DockingStation.new.release_bike.working?).to eq(true)
+    expect(@station.release_bike).to be_an_instance_of(Bike)
+    expect(@bike.working?).to eq(true)
     end
 
+  it 'should dock a bike' do
+    expect(@station.dock(@bike)).to eq("Bike has been successfully docked")
+  end
 end
