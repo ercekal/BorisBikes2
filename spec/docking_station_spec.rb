@@ -3,7 +3,7 @@ require 'boris_bikes.rb'
 describe DockingStation do
   before(:all) do
     @station = DockingStation.new
-    @bike = @station.release_bike
+    @bike = Bike.new
   end
 
   it 'should release the working bike' do
@@ -20,8 +20,8 @@ describe DockingStation do
   end
 
   it 'should raise error if station is full' do
-    bike2 = Bike.new
-    expect{@station.dock(bike2)}.to raise_error(RuntimeError)
+
+    expect{20.times {@station.dock(Bike.new)}}.to raise_error(RuntimeError)
   end
 
 end

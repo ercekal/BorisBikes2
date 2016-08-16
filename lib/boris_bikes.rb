@@ -1,9 +1,10 @@
 class DockingStation
-CAPACITY = 1
 
   attr_reader :bikes
+
   def initialize
-    @bikes = [Bike.new]
+    @bikes = []
+    @capacity = 20
   end
 
   def release_bike
@@ -15,7 +16,7 @@ CAPACITY = 1
   end
 
   def dock(bike_object)
-    if @bikes.length >= CAPACITY
+    if @bikes.length >= @capacity
       raise "Docking Station is Full"
     else
       @bikes << bike_object
