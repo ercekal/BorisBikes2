@@ -1,4 +1,6 @@
 class DockingStation
+CAPACITY = 1
+
   attr_reader :bikes
   def initialize
     @bikes = [Bike.new]
@@ -13,8 +15,12 @@ class DockingStation
   end
 
   def dock(bike_object)
-    @bikes << bike_object
-    "Bike has been successfully docked"
+    if @bikes.length >= CAPACITY
+      raise "Docking Station is Full"
+    else
+      @bikes << bike_object
+      "Bike has been successfully docked"
+    end
   end
 end
 

@@ -15,7 +15,13 @@ describe DockingStation do
     expect{@station.release_bike}.to raise_error(RuntimeError)
   end
 
-  it 'should dock a bike' do
+  it 'should dock a bike to an empty station' do
     expect(@station.dock(@bike)).to eq("Bike has been successfully docked")
   end
+
+  it 'should raise error if station is full' do
+    bike2 = Bike.new
+    expect{@station.dock(bike2)}.to raise_error(RuntimeError)
+  end
+
 end
