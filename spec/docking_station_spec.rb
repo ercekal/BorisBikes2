@@ -30,4 +30,5 @@ describe DockingStation do
   it 'should set a given capacity' do
     expect(@station.capacity = 30).not_to eq DockingStation::DEFAULT_CAPACITY
   end
+
 end

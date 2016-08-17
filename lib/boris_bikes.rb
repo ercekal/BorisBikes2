@@ -1,4 +1,5 @@
 class DockingStation
+
   DEFAULT_CAPACITY = 20
 
   attr_accessor :capacity
@@ -28,7 +29,6 @@ attr_reader :bikes
   def empty?
     @bikes.empty?
   end
-
 end
 
 
