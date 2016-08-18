@@ -3,7 +3,7 @@ require 'boris_bikes.rb'
 describe DockingStation do
   before(:all) do
     @station = DockingStation.new
-    @bike = Bike.new
+    @bike = double(:bike)
   end
 
   it 'should release the working bike' do
@@ -34,15 +34,6 @@ describe DockingStation do
 
   it 'should release working bike' do
     expect(@station.release_bike.working?).to eq(true)
-  end  
-end
-
-  describe Bike do
-  it 'person should report a non-working bike' do
-    subject.report_bike
-    expect(subject.working?).to eq(false)
   end
-
-
 
 end
