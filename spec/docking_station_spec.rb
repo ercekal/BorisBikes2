@@ -28,7 +28,21 @@ describe DockingStation do
   end
 
   it 'should set a given capacity' do
-    expect(@station.capacity = 30).not_to eq DockingStation::DEFAULT_CAPACITY
+    station = DockingStation.new(30)
+    expect(station.capacity).not_to eq DockingStation::DEFAULT_CAPACITY
   end
+
+  it 'should release working bike' do
+    expect(@station.release_bike.working?).to eq(true)
+  end  
+end
+
+  describe Bike do
+  it 'person should report a non-working bike' do
+    subject.report_bike
+    expect(subject.working?).to eq(false)
+  end
+
+
 
 end
